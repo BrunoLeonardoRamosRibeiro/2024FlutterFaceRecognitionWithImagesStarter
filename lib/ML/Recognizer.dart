@@ -45,14 +45,25 @@ class Recognizer {
     }
   }
 
-  void registerFaceInDB(String name, String embedding) async {
+  // void registerFaceInDB(String name, String embedding) async {
+  //   // row to insert
+  //   Map<String, dynamic> row = {
+  //     DatabaseHelper.columnName: name,
+  //     DatabaseHelper.columnEmbedding: embedding
+  //   };
+  //   final id = await dbHelper.insert(row);
+  //   print('inserted row id: $id');
+  // }
+
+  void registerFaceInDB(String name, List<double> embedding) async {
     // row to insert
     Map<String, dynamic> row = {
       DatabaseHelper.columnName: name,
-      DatabaseHelper.columnEmbedding: embedding
+      DatabaseHelper.columnEmbedding: embedding.join(",")
     };
     final id = await dbHelper.insert(row);
     print('inserted row id: $id');
+    loadRegisteredFaces();
   }
 
 
