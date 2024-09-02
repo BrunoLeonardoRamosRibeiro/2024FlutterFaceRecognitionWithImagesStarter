@@ -93,10 +93,11 @@ class _HomePageState extends State<RecognitionScreen> {
       img.Image croppedFace = img.copyCrop(faceImg!,
           x: left.toInt(), y: top.toInt(), width: width.toInt(), height: height.toInt());
       Recognition recognition = recognizer.recognize(croppedFace, boundingBox);
-      if (recognition.distance > 1.25){
+      if (recognition.distance > 1.25) {
         recognition.name = "Unknown";
       }
       recognitions.add(recognition);
+      print("Recognized Person = " + recognition.name);
       // showFaceRegistrationDialogue(Uint8List.fromList(img.encodeBmp(croppedFace)), recognition);
       print("Recognized faces = " + recognition.name);
     }
