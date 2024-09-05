@@ -82,8 +82,8 @@ class Recognizer {
     List<double> flattenedList = resizedImage.data!.expand((channel) => [channel.r, channel.g, channel.b]).map((value) => value.toDouble()).toList();
     Float32List float32Array = Float32List.fromList(flattenedList);
     int channels = 3;
-    int height = 112;
-    int width = 112;
+    int height = HEIGHT;
+    int width = WIDTH;
     Float32List reshapedArray = Float32List(1 * height * width * channels);
     for (int c = 0; c < channels; c++) {
       for (int h = 0; h < height; h++) {
